@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER Couchbase Docker Team <docker@couchbase.com>
+MAINTAINER Couchbase Docker Team <docker@couchbase.com> && Daniel Rezny
 
 # Install dependencies
 RUN apt-get update && \
@@ -30,7 +30,6 @@ COPY scripts/run /etc/service/couchbase-server/run
 # Add bootstrap script
 COPY scripts/entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
-#CMD service couchbase-server start
 CMD ["couchbase-server"]
 
 EXPOSE 8091 8092 8093 11207 11210 11211 18091 18092
